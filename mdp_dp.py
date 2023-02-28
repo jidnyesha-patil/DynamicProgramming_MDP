@@ -50,7 +50,7 @@ def policy_evaluation(P, nS, nA, policy, gamma=0.9, tol=1e-8):
     
     value_function = np.zeros(nS)
     ############################
-    # YOUR IMPLEMENTATION HERE #
+    # IMPLEMENTATION #
     delta = np.Inf
     while delta>0:
         delta = 0
@@ -90,7 +90,7 @@ def policy_improvement(P, nS, nA, value_from_policy, gamma=0.9):
 
     new_policy = np.ones([nS, nA]) / nA
 	############################
-	# YOUR IMPLEMENTATION HERE #
+	# IMPLEMENTATION #
     for state in range(nS):
         for action in range(nA):
             old_prob = new_policy[state][action]
@@ -127,7 +127,7 @@ def policy_iteration(P, nS, nA, policy, gamma=0.9, tol=1e-8):
     """
     new_policy = policy.copy()
 	############################
-	# YOUR IMPLEMENTATION HERE #
+	# IMPLEMENTATION #
     policy_stable = False
     while not policy_stable:
         new_value_fxn = policy_evaluation(P, nS, nA, policy)
@@ -162,7 +162,7 @@ def value_iteration(P, nS, nA, V, gamma=0.9, tol=1e-8):
     
     V_new = V.copy()
     ############################
-    # YOUR IMPLEMENTATION HERE #
+    # IMPLEMENTATION #
     policy_new = np.zeros([nS, nA])
     error = 0
     error_list = np.zeros(nS)
@@ -218,7 +218,7 @@ def render_single(env, policy, render = False, n_episodes=100):
             if render:
                 env.render() # render the game
             ############################
-            # YOUR IMPLEMENTATION HERE #
+            # IMPLEMENTATION #
             action_possibilities = policy[ob]
             action = np.argmax(action_possibilities)
             ob , reward , done , _ = env.step(action)
